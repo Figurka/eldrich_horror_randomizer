@@ -10,12 +10,14 @@
     
   </head>
   <body id="app">
-    {{message}}
- <select>
-  <option value="0">Локация</option>
-  <option value="1"></option>
-  <option value="2"></option>
+    <div>
+      Рандомайзер для игры в Древний ужас
+    </div>
+    {{type.index}}
+ <select v-model ='type'>
+  <option v-for="(item, index) of types">{{item}} {{index}} </option>
  </select>
+ <button>Поехали!</button>
   </body>
   <script type="module">
     import { createApp } from 'vue'
@@ -23,9 +25,17 @@
     createApp({
       data() {
         return {
-          message: 'Hello Vue!'
+          types:{
+            0: 'Локация',
+            1: "Дар",
+            2: "Соглашение"
+          },
+         
+          type: 2,
         }
-      }
+      },
+
     }).mount('#app')
+    methods
   </script>
 </HTML>
